@@ -1,15 +1,16 @@
 #!/bin/bash
-# Guessing Game v0.1
-RANDO=$[ ($RANDOM % 10) + 1 ]
+# Guessing Game v0.5
+rando=$[ ($RANDOM % 10) + 1 ]
 echo -e "Pick a number between 1 and 10 and press [Enter]: "
-read PICK
-if [ $RANDO -eq $PICK ]; then
+while read pick; do
+if [ $rando -eq $pick ]; then
 	echo "You win!"
-elif [ $RANDO -lt $PICK ]; then
+	break;
+elif [ $rando -lt $pick ]; then
 	echo "Too high!"
 else
 	echo "Too low!"
 fi
-echo "The number was $RANDO."
+done
+echo "The number was $rando."
 exit 0
-
